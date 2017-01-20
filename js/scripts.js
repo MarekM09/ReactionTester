@@ -67,3 +67,6 @@ document.getElementById("start-button").onclick = function () {
         appearAfterDelay();
     }
 }
+document.getElementById("stop-button").onclick = function () {
+    
+}

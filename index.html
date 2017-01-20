@@ -16,21 +16,27 @@
             <div class="score-board">
                 <div class="last-time">
                     <h3>last time:</h3>
-                    <h2>
+                    <h4>
                         <span id="last-time">0.000</span> s
-                    </h2>
+                    </h4>
                 </div>
                 <div class="average-time">
-                    <h3>average time after &#160&#160<span id="try-number"> 0</span> attempt's: </h3>
-                    <h2>
+                    <h3>average time after &#160&#160<span id="try-number"> 0</span> attempts: </h3>
+                    <h4>
                         <span id="average-time">0.000</span> s
-                    </h2>
+                    </h4>
                 </div>
                 <div class="start-button-container">
                     <button id="start-button" type="button">start</button>
+                    <button id="stop-button" type="button">stop</button>
                 </div>
             </div>
             <div class="game-board">
+                <div id="summary" class="summary-container">
+                    <h2>summary:</h2>
+                    <h3>You play <span id="rounds">0</span> rounds</h3>
+                    <h3>Your average time: <span id="av-time">0</span> seconds</h3>
+                </div>
                 <div id="figure"></div> 
             </div>
         </main>
