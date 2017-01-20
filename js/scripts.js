@@ -65,9 +65,14 @@ function displayResults() {
     document.getElementById("try-number").innerHTML = counter;
 }
 
+function hideFigure() {
+    document.getElementById("figure").style.display = "none";
+}
+
 document.getElementById("start-button").onclick = function () {
+    hideFigure();
     document.getElementById("summary").style.display = "none";
-    appearAfterDelay();
+    setTimeout(generateRandomFigure, 2000);
 
     document.getElementById("figure").onclick = function () {
         counter++;
@@ -75,8 +80,7 @@ document.getElementById("start-button").onclick = function () {
         timeSum += clickTime;
         average = (timeSum / counter);
         displayResults()
-        document.getElementById("figure").style.display = "none";
-        
+        hideFigure()
         appearAfterDelay();
     }
 }
@@ -84,7 +88,7 @@ document.getElementById("stop-button").onclick = function () {
     document.getElementById("summary").style.display = "block";
     document.getElementById("rounds").innerHTML = counter;
     document.getElementById("av-time").innerHTML = average.toFixed(3);
-    resultsReset()
-    displayResults()
-    document.getElementById("figure").style.display = "none";
+    resultsReset();
+    displayResults();
+    hideFigure();
 }
