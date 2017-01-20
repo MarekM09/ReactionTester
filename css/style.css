@@ -76,6 +76,7 @@ main {
     height: 500px;
     background-color: lightsteelblue;
     padding: 10px;
+    position: relative; 
 }
 .score-board {
     width: 200px;
@@ -96,27 +97,31 @@ h4 {
     line-height: 30px
 }
 .last-time {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     color: darkolivegreen;
 }
 .average-time {
     color: darkslategrey
 }
-.start-button-container {
+.button-container {
     margin: 20px;
+    position: relative;
 }
 #start-button {
+    position: absolute;
+    top: 0;
+    left: 0;
     display: block;
     width: 150px;
     text-align: center;
     height: 40px;
-    margin: 0 auto;
     font-family: 'Orbitron', sans-serif;
     font-size: 20px;
     text-transform: uppercase;
     background-color: lightslategray;
     color: white;
-    border: none;
+    border: none;    
+    z-index: 1;
 }
 #start-button:active {
     background-color: gray
@@ -133,22 +138,26 @@ h4 {
 #figure {
     position: absolute;
 }
-#try-number {
+#try-number,
+#time-to-beat,
+#average-time,
+#last-time {
     font-size: 25px;
     color: darkred;
 }
 #stop-button {
+    position: absolute;
     display: block;
     width: 150px;
     text-align: center;
     height: 40px;
-    margin: 20px auto;
     font-family: 'Orbitron', sans-serif;
     font-size: 20px;
     text-transform: uppercase;
     background-color: lightcoral;
     color: white;
     border: none;
+    z-index: 0;
 }
 #stop-button:active {
     background-color: coral
@@ -158,8 +167,25 @@ h4 {
     padding: 50px;
     background-color: lime;
     position: absolute;
-    top: 100px;
-    left: 100px;
+    top: 50px;
+    left: 250px;
     z-index: 3;
     display: none;
+}
+#close-button {
+    display: block;
+    width: 150px;
+    text-align: center;
+    height: 40px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 20px;
+    text-transform: uppercase;
+    background-color: lightseagreen;
+    color: white;
+    border: none;
+    margin: 0 auto;
+    margin-top: 40px;
+}
+#close-button:active {
+    background-color: seagreen;
 }

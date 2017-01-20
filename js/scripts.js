@@ -3,6 +3,7 @@ var clickTime = 0;
 var timeSum = 0;
 var counter = 0;
 var average = 0;
+var bestAverageResult = localStorage.getItem("bestAverageResult");
 
 function generateRandomFigure() {
     var size = Math.floor(Math.random() * 50 + 50);
@@ -63,14 +64,29 @@ function displayResults() {
     document.getElementById("last-time").innerHTML = clickTime.toFixed(3);
     document.getElementById("average-time").innerHTML = average.toFixed(3);
     document.getElementById("try-number").innerHTML = counter;
+    document.getElementById("best-time").innerHTML = bestAverageResult;
+    document.getElementById("time-to-beat").innerHTML = bestAverageResult;
 }
 
 function hideFigure() {
     document.getElementById("figure").style.display = "none";
 }
 
+function saveBestTime(time) {
+
+    if ((time < bestAverageResult && time != 0) || bestAverageResult == null || bestAverageResult == 0) {
+        localStorage.setItem("bestAverageResult", time.toFixed(3));
+        bestAverageResult = localStorage.getItem("bestAverageResult");
+    }
+}
+
+document.getElementById("time-to-beat").innerHTML = bestAverageResult;
+
 document.getElementById("start-button").onclick = function () {
     hideFigure();
+    resultsReset();
+    displayResults()
+    document.getElementById("start-button").style.zIndex = "0";
     document.getElementById("summary").style.display = "none";
     setTimeout(generateRandomFigure, 2000);
 
@@ -79,16 +95,23 @@ document.getElementById("start-button").onclick = function () {
         clickTime = (Date.now() - startTime) / 1000;
         timeSum += clickTime;
         average = (timeSum / counter);
-        displayResults()
-        hideFigure()
+        displayResults();
+        hideFigure();
         appearAfterDelay();
     }
 }
+
 document.getElementById("stop-button").onclick = function () {
+    document.getElementById("start-button").style.zIndex = "1";
     document.getElementById("summary").style.display = "block";
     document.getElementById("rounds").innerHTML = counter;
     document.getElementById("av-time").innerHTML = average.toFixed(3);
-    resultsReset();
+    saveBestTime(average);
     displayResults();
+    hideFigure();
+}
+
+document.getElementById("close-button").onclick = function () {
+    document.getElementById("summary").style.display = "none";
     hideFigure();
 }
