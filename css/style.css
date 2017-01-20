@@ -132,3 +132,7 @@ h2 {
 #figure {
     position: absolute;
 }
+#try-number {
+    font-size: 25px;
+    color: darkred;
+}

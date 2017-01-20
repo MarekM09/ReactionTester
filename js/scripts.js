@@ -1,5 +1,7 @@
 var startTime = Date.now();
 var clickTime = 0;
+var timeSum = 0;
+var counter = 0;
 
 function generateRandomFigure() {
     var size = Math.floor(Math.random() * 50 + 50);
@@ -53,9 +55,15 @@ document.getElementById("start-button").onclick = function () {
     appearAfterDelay();
 
     document.getElementById("figure").onclick = function () {
+        counter++;
         clickTime = (Date.now() - startTime) / 1000;
+        timeSum += clickTime;
+        var average = timeSum / counter;
         document.getElementById("last-time").innerHTML = clickTime;
+        document.getElementById("average-time").innerHTML = average.toFixed(3);
+        document.getElementById("try-number").innerHTML = counter;
         document.getElementById("figure").style.display = "none";
+        
         appearAfterDelay();
     }
 }
