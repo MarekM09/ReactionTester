@@ -1,19 +1,16 @@
-/*
-var dimension = Math.floor(Math.random() * 50 + 50);
-var color = getRandomColor();
-var shape = getShape();
-var positionTop = getPositionVertical();
-var positionLeft = getPositionHorizontal();
-*/
+var startTime = Date.now();
+var clickTime = 0;
 
-function generateFigure() {
-    var dimension = Math.floor(Math.random() * 50 + 50);
-    document.getElementById("figure").style.width = dimension + "px";
-    document.getElementById("figure").style.height = dimension + "px";
+function generateRandomFigure() {
+    var size = Math.floor(Math.random() * 50 + 50);
+    document.getElementById("figure").style.width = size + "px";
+    document.getElementById("figure").style.height = size + "px";
     document.getElementById("figure").style.backgroundColor = getRandomColor();
     document.getElementById("figure").style.borderRadius = getShape();
     document.getElementById("figure").style.left = getPositionHorizontal();
     document.getElementById("figure").style.top = getPositionVertical();
+    document.getElementById("figure").style.display = "block";
+    startTime = Date.now()
 }
 
 function getRandomColor() {
@@ -27,8 +24,8 @@ function getRandomColor() {
 
 function getShape() {
     var randomNumber = Math.floor(Math.random() * 2)
-    if (randomNumber == 0) {
-        return randomNumber;
+    if (Math.random() < 0.5) {
+        return 0;
     } else {
         return "50%";
     }
@@ -48,14 +45,17 @@ function getPositionHorizontal() {
     return pixelNumber + "px";
 }
 
-document.getElementById("start-button").onclick = function () {
-
-    generateFigure();
-
-    document.getElementById("figure").onclick = function () {
-        //document.getElementById("figure").style.display = "none";
-        console.log(count);
-        generateFigure();
-    }
+function appearAfterDelay() {
+    setTimeout(generateRandomFigure, Math.random() * 2000);
 }
 
+document.getElementById("start-button").onclick = function () {
+    appearAfterDelay();
+
+    document.getElementById("figure").onclick = function () {
+        clickTime = (Date.now() - startTime) / 1000;
+        document.getElementById("last-time").innerHTML = clickTime;
+        document.getElementById("figure").style.display = "none";
+        appearAfterDelay();
+    }
+}
