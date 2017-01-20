@@ -2,6 +2,7 @@ var startTime = Date.now();
 var clickTime = 0;
 var timeSum = 0;
 var counter = 0;
+var average = 0;
 
 function generateRandomFigure() {
     var size = Math.floor(Math.random() * 50 + 50);
@@ -51,22 +52,39 @@ function appearAfterDelay() {
     setTimeout(generateRandomFigure, Math.random() * 2000);
 }
 
+function resultsReset() {
+    counter = 0;
+    timeSum = 0;
+    average = 0;
+    clickTime = 0;
+}
+
+function displayResults() {
+    document.getElementById("last-time").innerHTML = clickTime.toFixed(3);
+    document.getElementById("average-time").innerHTML = average.toFixed(3);
+    document.getElementById("try-number").innerHTML = counter;
+}
+
 document.getElementById("start-button").onclick = function () {
+    document.getElementById("summary").style.display = "none";
     appearAfterDelay();
 
     document.getElementById("figure").onclick = function () {
         counter++;
         clickTime = (Date.now() - startTime) / 1000;
         timeSum += clickTime;
-        var average = timeSum / counter;
-        document.getElementById("last-time").innerHTML = clickTime;
-        document.getElementById("average-time").innerHTML = average.toFixed(3);
-        document.getElementById("try-number").innerHTML = counter;
+        average = (timeSum / counter);
+        displayResults()
         document.getElementById("figure").style.display = "none";
         
         appearAfterDelay();
     }
 }
 document.getElementById("stop-button").onclick = function () {
-    
+    document.getElementById("summary").style.display = "block";
+    document.getElementById("rounds").innerHTML = counter;
+    document.getElementById("av-time").innerHTML = average.toFixed(3);
+    resultsReset()
+    displayResults()
+    document.getElementById("figure").style.display = "none";
 }
