@@ -1,50 +1,49 @@
 <!doctype html>
-    <head>
-        <meta charset="utf-8">
-        <title>Reaction Tester</title>
 
-        <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="css/style.css">
-    </head>
-    <body>
-        
-        <header>
-            <h1>reaction tester</h1>
-            <h2>Test how fast You are</h2>
-        </header>
-        <main>
-            <div class="score-board">
-                <div class="last-time">
-                    <h3>last time:</h3>
-                    <h4>
-                        <span id="last-time">0.000</span> s
-                    </h4>
-                </div>
-                <div class="average-time">
-                    <h3>average time after &#160&#160<span id="try-number">0</span> attempts: </h3>
-                    <h4>
-                        <span id="average-time">0.000</span> s
-                    </h4>
-                    <h3>time to beat: <span id="time-to-beat"></span></h3>
-                </div>
-                <div class="button-container">
-                    <button id="start-button" type="button">start</button>
-                    <button id="stop-button" type="button">stop</button>
-                </div>
-            </div>
-            <div class="game-board">
-                
-                <div id="figure"></div> 
-            </div>
-            <div id="summary" class="summary-container">
-                    <h2>summary:</h2>
-                    <h3>You play <span id="rounds">0</span> rounds</h3>
-                    <h3>Your average time: <span id="av-time">0</span> seconds</h3>
-                    <h3>The best score of all time: <span id="best-time">0</span> seconds</h3>
-                    <button id="close-button" type="button">close</button>
-                </div>
-        </main>
+<head>
+    <meta charset="utf-8">
+    <title>Reaction Tester</title>
+    <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
 
-        <script type="text/javascript" src="js/scripts.js"></script>
-    </body>
+<body>
+    <header>
+        <h1>reaction tester</h1>
+        <h2>Test how fast You are</h2>
+    </header>
+    <main>
+        <div class="score-board">
+            <div class="last-time">
+                <h3>last time:</h3>
+                <h4>
+                    <span id="last-time">0.000</span> s
+                </h4>
+            </div>
+            <div class="average-time">
+                <h3>average time after &#160&#160<span id="try-number">0</span> attempts: </h3>
+                <h4>
+                    <span id="average-time">0.000</span> s
+                </h4>
+                <h3>time to beat: <span id="time-to-beat"></span></h3>
+            </div>
+            <div class="button-container">
+                <button id="start-button" type="button">start</button>
+                <button id="stop-button" type="button">stop</button>
+            </div>
+        </div>
+        <div class="game-board">
+            <div id="figure"></div>
+        </div>
+        <div id="summary" class="summary-container">
+            <h2>summary:</h2>
+            <h3>You play <span id="rounds">0</span> rounds</h3>
+            <h3>Your average time: <span id="av-time">0</span> seconds</h3>
+            <h3>The best score of all time: <span id="best-time">0</span> seconds</h3>
+            <button id="close-button" type="button">close</button>
+        </div>
+    </main>
+    <script type="text/javascript" src="js/scripts.js"></script>
+</body>
+
 </html>

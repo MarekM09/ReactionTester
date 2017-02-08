@@ -82,7 +82,7 @@ function saveBestTime(time) {
 
 document.getElementById("time-to-beat").innerHTML = bestAverageResult;
 
-document.getElementById("start-button").onclick = function () {
+document.getElementById("start-button").onclick = function() {
     hideFigure();
     resultsReset();
     displayResults()
@@ -90,7 +90,7 @@ document.getElementById("start-button").onclick = function () {
     document.getElementById("summary").style.display = "none";
     setTimeout(generateRandomFigure, 2000);
 
-    document.getElementById("figure").onclick = function () {
+    document.getElementById("figure").onclick = function() {
         counter++;
         clickTime = (Date.now() - startTime) / 1000;
         timeSum += clickTime;
@@ -101,7 +101,7 @@ document.getElementById("start-button").onclick = function () {
     }
 }
 
-document.getElementById("stop-button").onclick = function () {
+document.getElementById("stop-button").onclick = function() {
     document.getElementById("start-button").style.zIndex = "1";
     document.getElementById("summary").style.display = "block";
     document.getElementById("rounds").innerHTML = counter;
@@ -111,7 +111,7 @@ document.getElementById("stop-button").onclick = function () {
     hideFigure();
 }
 
-document.getElementById("close-button").onclick = function () {
+document.getElementById("close-button").onclick = function() {
     document.getElementById("summary").style.display = "none";
     hideFigure();
 }
